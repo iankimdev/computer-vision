@@ -1,0 +1,10 @@
+﻿  get_posture.cpp
+get_posture.cpp(121): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
+  homography.cpp
+  main.cpp
+  vanish.cpp
+  Generating code
+  All 186 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Project1.vcxproj -> \\Mac\Home\Downloads\Project1(final4)\Release\Project1.exe
+  Project1.vcxproj -> \\Mac\Home\Downloads\Project1(final4)\Release\Project1.pdb (Full PDB)
