@@ -1,3 +1,6 @@
+# 졸업논문
+졸업논문으로 제작한 포트폴리오입니다. 두 이미지의 관계인 '호모그래피'라는 것을 통해 유저의 위치와 자세를 획득하는 것을 목표로 한 프로젝트입니다.
+
 
 ## Homography
 ![](https://velog.velcdn.com/images/ian-k-developer/post/3ab7f3d3-9705-408d-a258-0efcb3959be4/image.png)
