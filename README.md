@@ -262,3 +262,9 @@ RGB와 Yellow 색의 4개의 기준점을 가진 평면
 
 
 ![](https://velog.velcdn.com/images/ian-k-developer/post/692cb298-24c1-4d86-a812-6268cec08af0/image.JPG)
+
+
+### 실험 데이터
+
+<img width="1964" alt="Screen Shot 2023-02-06 at 7 20 16 PM" src="https://user-images.githubusercontent.com/120093816/216946750-85592d42-6e4d-449f-96c1-a27fdc00eac3.png">
+
