@@ -10,7 +10,7 @@
 #include<cmath>
 
 
-using namespace std;
+//using namespace std;
 
 enum pictures{PI=0,THETA=1,ROLL=2,FIX_POSISION=3,MOVING_POSITION=4};
 double Get_Distance(double h[3][3], double h_r[3][3], vector ztvl);
@@ -20,7 +20,7 @@ void picture_info(vector output[4],pictures mode,int picture_num);
 void picture_info2(vector output[4], pictures mode, int picture_num);
 int main()
 {
-	ofstream out1("outputFile.txt", ios::trunc);
+	std::ofstream out1("outputFile.txt", std::ios::trunc);
 	out1.close();
 	int FATPR = 387;
 	int stop;
@@ -47,7 +47,7 @@ int main()
 
 	get_position My_position;
 	/*
-	//PI ����
+	//PI 
 	for (int i = 0; i <= 9; i++)
 	{
 		picture_info(modi, PI, i);
@@ -77,12 +77,12 @@ int main()
 		v1.get_VanishingPoints();
 		v1.get_VanishingLine();
 
-		ztvl = v1.Zero_to_Vanishing_Line();//�� ������ ������ ��������  theta �� ����
+		ztvl = v1.Zero_to_Vanishing_Line();
 		ctvl = v1.Code_to_Vanishing_Line();
 		//calc distance,caldinal point
 
 		
-		My_position.input(h, h_r, ztvl, ctvl);// ztvl�� ctvl�� ��κ��� ��� ������ ������ �幮 ���̽��� ������ �ݴ��� �� �ִ�.
+		My_position.input(h, h_r, ztvl, ctvl);
 		My_position.Get_theta_posture(FATPR);
 		My_position.Get_pi_posture();
 		My_position.Get_roll_posture();
@@ -94,7 +94,7 @@ int main()
 		stop = 0;
 		cin >> stop;
 	}
-	//THETA ���� 
+	//THETA 
 	for (int i = 0; i <= 12; i++)
 	{
 		picture_info(modi, THETA, i);
@@ -124,12 +124,12 @@ int main()
 		v1.get_VanishingPoints();
 		v1.get_VanishingLine();
 
-		ztvl = v1.Zero_to_Vanishing_Line();//�� ������ ������ ��������  theta �� ����
+		ztvl = v1.Zero_to_Vanishing_Line();
 		ctvl = v1.Code_to_Vanishing_Line();
 		//calc distance,caldinal point
 
 
-		My_position.input(h, h_r, ztvl, ctvl);// ztvl�� ctvl�� ��κ��� ��� ������ ������ �幮 ���̽��� ������ �ݴ��� �� �ִ�.
+		My_position.input(h, h_r, ztvl, ctvl);
 		My_position.Get_theta_posture(FATPR);
 		My_position.Get_pi_posture();
 		My_position.Get_roll_posture();
@@ -143,7 +143,7 @@ int main()
 	}
 	*/							
 	
-	//phi ����
+	//phi 
 	for (int i = 0; i <= 9; i++)
 	{
 		picture_info2(modi, PI, i);
@@ -173,12 +173,12 @@ int main()
 		v1.get_VanishingPoints();
 		v1.get_VanishingLine();
 
-		ztvl = v1.Zero_to_Vanishing_Line();//�� ������ ������ ��������  theta �� ����
+		ztvl = v1.Zero_to_Vanishing_Line();
 		ctvl = v1.Code_to_Vanishing_Line();
 		//calc distance,caldinal point
 
 
-		My_position.input(h, h_r, ztvl, ctvl);// ztvl�� ctvl�� ��κ��� ��� ������ ������ �幮 ���̽��� ������ �ݴ��� �� �ִ�.
+		My_position.input(h, h_r, ztvl, ctvl);
 		My_position.Get_theta_posture(FATPR);
 		My_position.Get_pi_posture();
 		My_position.Get_roll_posture();
@@ -190,11 +190,11 @@ int main()
 		stop = 0;
 		//cin >> stop;
 	}
-	out1.open("outputFile.txt", ios::app);
-	out1 << endl;
+	out1.open("outputFile.txt", std::ios::app);
+	out1 << std::endl;
 	out1.close();
 	
-	//theta ����
+	//theta 
 	for (int i = 0; i <= 12; i++)
 	{
 		picture_info2(modi, THETA, i);
@@ -224,12 +224,12 @@ int main()
 		v1.get_VanishingPoints();
 		v1.get_VanishingLine();
 
-		ztvl = v1.Zero_to_Vanishing_Line();//�� ������ ������ ��������  theta �� ����
+		ztvl = v1.Zero_to_Vanishing_Line();
 		ctvl = v1.Code_to_Vanishing_Line();
 		//calc distance,caldinal point
 
 
-		My_position.input(h, h_r, ztvl, ctvl);// ztvl�� ctvl�� ��κ��� ��� ������ ������ �幮 ���̽��� ������ �ݴ��� �� �ִ�.
+		My_position.input(h, h_r, ztvl, ctvl);
 		My_position.Get_theta_posture(FATPR);
 		My_position.Get_pi_posture();
 		My_position.Get_roll_posture();
@@ -241,11 +241,11 @@ int main()
 
 		//cin >> stop;
 	}
-	out1.open("outputFile.txt", ios::app);
-	out1 << endl;
+	out1.open("outputFile.txt", std::ios::app);
+	out1 << std::endl;
 	out1.close();
 	
-	//roll ����
+	//roll 
 	for (int i = 0; i <= 9; i++)
 	{
 		picture_info2(modi, ROLL, i);
@@ -275,12 +275,12 @@ int main()
 		v1.get_VanishingPoints();
 		v1.get_VanishingLine();
 
-		ztvl = v1.Zero_to_Vanishing_Line();//�� ������ ������ ��������  theta �� ����
+		ztvl = v1.Zero_to_Vanishing_Line();
 		ctvl = v1.Code_to_Vanishing_Line();
 		//calc distance,caldinal point
 
 
-		My_position.input(h, h_r, ztvl, ctvl);// ztvl�� ctvl�� ��κ��� ��� ������ ������ �幮 ���̽��� ������ �ݴ��� �� �ִ�.
+		My_position.input(h, h_r, ztvl, ctvl);
 		My_position.Get_theta_posture(FATPR);
 		My_position.Get_pi_posture();
 		My_position.Get_roll_posture();
@@ -292,11 +292,11 @@ int main()
 
 		//cin >> stop;
 	}
-	out1.open("outputFile.txt", ios::app);
-	out1 << endl;
+	out1.open("outputFile.txt", std::ios::app);
+	out1 << std::endl;
 	out1.close();
 	
-	//fix_position ����
+	//fix_position 
 	for (int i = 0; i <= 8; i++)
 	{
 		picture_info2(modi, FIX_POSISION, i);
@@ -326,12 +326,12 @@ int main()
 		v1.get_VanishingPoints();
 		v1.get_VanishingLine();
 
-		ztvl = v1.Zero_to_Vanishing_Line();//�� ������ ������ ��������  theta �� ����
+		ztvl = v1.Zero_to_Vanishing_Line();
 		ctvl = v1.Code_to_Vanishing_Line();
 		//calc distance,caldinal point
 
 
-		My_position.input(h, h_r, ztvl, ctvl);// ztvl�� ctvl�� ��κ��� ��� ������ ������ �幮 ���̽��� ������ �ݴ��� �� �ִ�.
+		My_position.input(h, h_r, ztvl, ctvl);
 		My_position.Get_theta_posture(FATPR);
 		My_position.Get_pi_posture();
 		My_position.Get_roll_posture();
@@ -343,11 +343,11 @@ int main()
 
 		//cin >> stop;
 	}
-	out1.open("outputFile.txt", ios::app);
-	out1 << endl;
+	out1.open("outputFile.txt", std::ios::app);
+	out1 << std::endl;
 	out1.close();
 	
-	//moving_position ����
+	//moving_position 
 	for (int i = 0; i <= 5; i++)
 	{
 		picture_info2(modi, MOVING_POSITION, i);
@@ -377,12 +377,12 @@ int main()
 		v1.get_VanishingPoints();
 		v1.get_VanishingLine();
 
-		ztvl = v1.Zero_to_Vanishing_Line();//�� ������ ������ ��������  theta �� ����
+		ztvl = v1.Zero_to_Vanishing_Line();
 		ctvl = v1.Code_to_Vanishing_Line();
 		//calc distance,caldinal point
 
 
-		My_position.input(h, h_r, ztvl, ctvl);// ztvl�� ctvl�� ��κ��� ��� ������ ������ �幮 ���̽��� ������ �ݴ��� �� �ִ�.
+		My_position.input(h, h_r, ztvl, ctvl);
 		My_position.Get_theta_posture(FATPR);
 		My_position.Get_pi_posture();
 		My_position.Get_roll_posture();
@@ -428,7 +428,7 @@ vector Get_cardinal_point(double h[3][3], double h_r[3][3], vector ztvl)
 	unit_ztvl_p = unit_ztvl_p / mag(unit_ztvl_p);
 	return unit_ztvl_p;
 }
-//���� �ʿ� (�̷к��� �ٽ� ����)
+
 void picture_info(vector output[4], pictures mode,int picture_num)
 {
 	vector picture_information[2][13][4];

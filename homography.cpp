@@ -3,7 +3,7 @@
 #include<iostream>
 #include<iomanip>
 
-using namespace std;
+//using namespace std;
 
 
 
@@ -150,7 +150,7 @@ void homography::fill_reverse_mid_matrix()//안씀
 	}
 	else
 	{
-		cout << "error: det is zero(rev matrix don`t exist)" << endl;
+		std::cout << "error: det is zero(rev matrix don`t exist)" << std::endl;
 	}
 }
 
@@ -168,7 +168,7 @@ void homography::get_cramer_mat(double x[8], int n)//cramer 공식 참고
 		cramer_mat[j][n] = x[j];
 	}
 }
-int homography::sign(int i, int j)//det 구할때 부호 정해주는 함수 
+int homography::sign(int i, int j)//det 구할 때, 부호 정해주는 함수 
 {
 	if ((i + j) % 2 == 0)
 	{
@@ -223,7 +223,7 @@ void homography::calc_homography(vector orig[4], vector modi[4])//input(vector o
 	}
 	calc_homography();
 }
-void homography::calc_inv_homography()// 역 호모그래피 구하는거
+void homography::calc_inv_homography()// 역 호모그래피
 {
 	vector tmp_orig[4];
 	vector tmp_modi[4];
@@ -271,7 +271,7 @@ void homography::calc_inv_homography()// 역 호모그래피 구하는거
 	fill_mid_matrix();
 }
 
-double homography::Det(double** A, int size)// 선형대수의 determinant 참고
+double homography::Det(double** A, int size)// 선형대수의 determinant 
 {
 	double result = 0;
 	if (size == 2)
@@ -281,7 +281,7 @@ double homography::Det(double** A, int size)// 선형대수의 determinant 참고
 	}
 	else if (size < 2)
 	{
-		cout << "size_error"<<endl;
+		std::cout << "size_error"<<std::endl;
 		return 0;
 	}
 	double** B = new double*[size-1];
@@ -293,7 +293,7 @@ double homography::Det(double** A, int size)// 선형대수의 determinant 참고
 	for (int i = 0; i < size; i++)
 	{
 		Get_B(A, B, i,0,size);// B란? 행렬A에서 i열 j=0 행 을 제외하여 새로 만들어진 행렬이다.
-		result += sign(0,i) * A[0][i] * Det(B, size - 1);// i 와 j의 순서가 바뀌어 헷갈릴수 있지만 알아서 이해해주길 바람
+		result += sign(0,i) * A[0][i] * Det(B, size - 1);
 	}
 
 	for (int i = 0; i < size - 1; i++)
@@ -415,12 +415,11 @@ void homography::Display_homography()
 {
 	for (int i = 0; i < 3; i++)
 	{
-		cout << setw(15) << h[i][0] << setw(15) << h[i][1] << setw(15) << h[i][2] << endl;
+		std::cout << std::setw(15) << h[i][0] << std::setw(15) << h[i][1] << std::setw(15) << h[i][2] << std::endl;
 	}
 }
 
-vector homography::transform(vector v1)// 호모그래피 변환 (projective transform)-> 네이버에 다크프로그래머를 검색하세요
-{
+vector homography::transform(vector v1)// 호모그래피 변환 (projective transform)
 	double w = h[2][0] * v1.x + h[2][1] * v1.y + 1.0;
 	vector v2;
 	if (w != 0)
@@ -433,7 +432,7 @@ vector homography::transform(vector v1)// 호모그래피 변환 (projective transform)
 	{
 		v2.x = 0;
 		v2.y = 0;
-		cout << "x,y 값은 무한대로 발산" << endl;
+		std::cout << "x,y 값은 무한대로 발산" << std::endl;
 		return v2;
 	}
 }
@@ -451,7 +450,7 @@ vector homography::inv_transform(vector v1)
 	{
 		v2.x = 0;
 		v2.y = 0;
-		cout << "x,y 값은 무한대로 발산" << endl;
+		std::cout << "x,y 값은 무한대로 발산" << std::endl;
 		return v2;
 	}
 

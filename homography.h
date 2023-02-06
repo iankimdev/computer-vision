@@ -13,7 +13,7 @@ public:
 	double y;
 
 	friend double dot(vector v1, vector v2);//벡터의 내적
-	friend double by(vector v1, vector v2);//벡터의 외적 :3차원좌표를 그릴게 아니므로 그냥 크기만 return 
+	friend double by(vector v1, vector v2);//벡터의 외적 (3차원좌표를 그릴게 아니므로 그냥 크기만 return)
 	friend double mag(vector v1);// 벡터의 크기
 };
 class homography

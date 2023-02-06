@@ -8,7 +8,7 @@
 #include<iostream>
 #include<iomanip>
 #include<fstream>
-#define PI_C 3.141592// phi�� ö�ڸ� �򰥷��� pi�� ���ٺ��� ������ pi�� ȥ���Ǽ� _C�� ����
+#define PI_C 3.141592
 void get_posture::vector_to_degree(vector v1, double& degree)
 {
 	
@@ -34,7 +34,7 @@ get_posture::~get_posture()
 {}
 void get_posture::input(double H[3][3], double H_R[3][3], vector Zero_To_Vanishing_Line, vector Code_To_Vanishing_Line)
 {
-	ztvl = Zero_To_Vanishing_Line;//qr�ڵ� �߽ɿ��� vanishing line���� ����
+	ztvl = Zero_To_Vanishing_Line;
 	ctvl = Code_To_Vanishing_Line;
 	for (int i = 0; i < 3; i++)
 	{
@@ -57,10 +57,10 @@ double get_posture::Get_Distance()
 	point2 = modi_code_center - distance_line_vector;
 	homography_transform_po(point1_p, h_r, point1);
 	homography_transform_po(point2_p, h_r, point2);
-	distance = mag(point2_p - point1_p);//r ȹ��
+	distance = mag(point2_p - point1_p);//r
 	return distance;
 }
-vector get_posture::Get_pi_posture()// image �� ��ǥ�� x , -y �̹Ƿ� pi �� �ð� �ݴ� �������� ȸ��
+vector get_posture::Get_pi_posture()
 {
 	vector zero_point_p;
 	vector unit_ctvl;
@@ -72,10 +72,10 @@ vector get_posture::Get_pi_posture()// image �� ��ǥ�� x , -y �̹�
 	unit_ctvl = (ctvl / mag(ctvl));
 	unit_ztvl = (ztvl / mag(ztvl));
 	homography_transform_po(unit_ctvl_p, h_r, zero_point_p + unit_ctvl);
-	//�����󿡼��� ���� ������ �ٶ󺸴� ���� �ҽ����� ���ϴ� ���̸�, �̸� ���ϱ����� �ڵ��߽� ��ǥ(zero_point_p)�� �ڵ��߽ɿ��� ���� ���� ������ �Ҽ��������� ���Ϳ� ���ϸ� ztvl�� ���Եȴ�.
+	
 	
 	unit_ctvl_p = (unit_ctvl_p ) / mag(unit_ctvl_p );
-	vector_to_degree(unit_ctvl_p, pan);//pi ȹ��
+	vector_to_degree(unit_ctvl_p, pan);//pi
 	return unit_ctvl_p;
 }
 double get_posture::Get_theta_posture(int five_angle_to_pixel_rate)
@@ -85,14 +85,14 @@ double get_posture::Get_theta_posture(int five_angle_to_pixel_rate)
 
 	unit_coordinate_theta = ctvl / mag(ctvl);
 
-	tilt = (180.0 / PI_C)*atan(dot(unit_coordinate_theta, ztvl) / c);// theta ȹ��(�ȼ� �� ���� ���踦 �����Ҷ��� �߽��� �׻� 0,0. ��, �þ��߽��� �Ǿ����Ѵ�. )
+	tilt = (180.0 / PI_C)*atan(dot(unit_coordinate_theta, ztvl) / c);
 	return tilt;
 }
 vector get_posture::Get_roll_posture()
 {
 	vector v_roll;
 	v_roll = ctvl / mag(ctvl);
-	vector_to_degree(v_roll, roll);//roll ȹ��
+	vector_to_degree(v_roll, roll);//roll
 	roll -= 90;
 	if (roll > 180)
 	{
@@ -147,7 +147,7 @@ double get_position::Get_theta_prime_position(int five_angle_to_pixel_rate)
 	double c = five_angle_to_pixel_rate / tan(5 * PI_C / 180);
 	double x = 0;
 	zero_to_code.x = h[0][2];
-	zero_to_code.y = h[1][2];// �ڵ��� �����̵� ����(�ʱ� �������ִ� �ڵ��� ����� ��ġ�� ������ ����)
+	zero_to_code.y = h[1][2];
 
 	unit_coordinate_theta = ctvl / mag(ctvl);
 	

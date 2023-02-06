@@ -8,7 +8,7 @@ vanish::vanish()
 	point3_exist = false;
 	count = 0;
 }
-void vanish::input_homography(double hmgp[3][3])//호모그래피 행렬 입력
+void vanish::input_homography(double hmgp[3][3])
 {
 	for (int i = 0; i < 3; i++)
 	{
