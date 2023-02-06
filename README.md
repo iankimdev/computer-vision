@@ -105,7 +105,9 @@ fy는 y축 방향 카메라 초점거리.
 
 roll 회전이 존재하는 경우에는 소실점만으로는 문제 해결이 안되며 소실선(vanishing line) 정보가 필요하다. 소실선이 주어질 경우, 카메라 주점과 소실선의 수직거리를 d(픽셀 단위), 초점거리를 f라 하면 틸트는 θtilt = atan2(d, f)로 계산
 
+
 소실선과 팬(pan)
+
 ![](https://velog.velcdn.com/images/ian-k-developer/post/fd26f19c-0678-458c-ba50-0a2b802aeda1/image.png)
 
 카메라의 원점을 C, 이미지의 주점을 P, 소실점을 V, 초점거리를 f, 주점에서 소실선에 내린 수선의 발을 H, 수직거리를 d
