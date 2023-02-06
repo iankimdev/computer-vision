@@ -1,12 +1,15 @@
 
 ## Homography
 ![](https://velog.velcdn.com/images/ian-k-developer/post/3ab7f3d3-9705-408d-a258-0efcb3959be4/image.png)
-두 평면사이의 Perspective Transform(원근 변환, 투시 변환) 관계이다.
 
+
+두 평면사이의 Perspective Transform(원근 변환, 투시 변환) 관계이다.
 카메라로부터 실제로 얼마나 멀리 떨어져 있고 또 키는 얼마나 큰지 알아내는 것은 영상기하학의 가장 빈번한 응용 중 하나
 
 영상내 임의의 영상좌표(픽셀좌표)에 대해 대응되는 2D 지면좌표(ground plane coordinate)를 구하는 문제로 귀결
+
 ![](https://velog.velcdn.com/images/ian-k-developer/post/6c414ad9-392c-41c1-9978-93d08a843143/image.png)
+
 
 임의의 네 대응쌍을 이용해서 구한 H를 다른 모든 점들에 대해서도 동일하게 적용할 수 있다
 
@@ -25,13 +28,17 @@
 있다.
 
 식을 풀면,
+
 ![](https://velog.velcdn.com/images/ian-k-developer/post/d6aa0a60-3397-4b27-9433-00b7cdf07e32/image.png)
 
 
 x, y에 대한 식으로 표현하면,
+
 ![](https://velog.velcdn.com/images/ian-k-developer/post/f31e8ab8-e74f-4763-8d8c-62b670bd5199/image.png)
 
+
 이를 행렬로 표현하면,
+
 ![](https://velog.velcdn.com/images/ian-k-developer/post/91d3fbf8-efd0-4f9f-9df6-149d45983424/image.png)
 
 
@@ -42,10 +49,6 @@ x, y에 대한 식으로 표현하면,
 이며, 역행렬을 통해 H를 구한다. 
 
 ![](https://velog.velcdn.com/images/ian-k-developer/post/00ed65bf-c673-485d-ae2e-0a62b24108a8/image.png)
-
-
-
-
 
 
 
@@ -62,15 +65,18 @@ x, y에 대한 식으로 표현하면,
 
 ![](https://velog.velcdn.com/images/ian-k-developer/post/6828b1f6-b788-4140-a8bf-bc7639da70f6/image.png)
 
-기하학적으로 봤을 때, 어떤 평면에 대한 소실선(vanishing line)은 이 평면과 수평이고 카메라 원점을 지나는 평면이 이미지 평면과 만나서 생기는 교선이다.
 
+기하학적으로 봤을 때, 어떤 평면에 대한 소실선(vanishing line)은 이 평면과 수평이고 카메라 원점을 지나는 평면이 이미지 평면과 만나서 생기는 교선이다.
 소실점(vanishing point)도 마찬가지이다. 지면 위의 한 직선을 이미지에 투영해 보면 직선을 무한히 확장하였을 경우 결국 소실선(L) 상의 어느 한 점으로 수렴하게 됨을 쉽게 상상할 수 있다.
+
 ![](https://velog.velcdn.com/images/ian-k-developer/post/a9314811-75a3-42bb-aace-7ca0f2e85652/image.png)
+
 
 소실선을 이용하여 현재 자세를 구할 수 있다. 수평선과 비슷한(지구는 둥글기 때문에 완전 같지는 않다.) 특징을 가지고 있어서 내가 바닥과 수평 방향을 바라보고 있다면 **내 시야에 중심에 소실선이 정확하게 일치**하게 되며 소실선이 내 시야중심보다 아래 있으면 내가 위를 바라보고 있는 것이고 반대로 위에 있으면 내가 아래를 바라보는 것이므로 **내가 어느 각도로 바라보고 있는지 소실선을 통해 알 수 있다**. 
 
 
 ![](https://velog.velcdn.com/images/ian-k-developer/post/7bd0664a-6b0c-4e76-a468-2b359c51931c/image.png)
+
 
 소실선의 위치를 알면 캘리브레이션을 하지 않고도 카메라의 팬(pan), 틸트(tilt), 롤(roll)을 알아낼 수 있다.
 
@@ -79,6 +85,7 @@ x, y에 대한 식으로 표현하면,
 ## Posture
 
 소실선과 롤(roll)
+
 ![](https://velog.velcdn.com/images/ian-k-developer/post/c734b207-7e76-48dc-89a3-9c7ff83f0c69/image.jpeg)
 ![](https://velog.velcdn.com/images/ian-k-developer/post/5be59f89-6540-400e-b722-11b55be31074/image.png)
 
@@ -86,6 +93,7 @@ x, y에 대한 식으로 표현하면,
 소실선과 틸트(tilt)
 
 ![](https://velog.velcdn.com/images/ian-k-developer/post/e4296165-4bfe-43c0-8583-99c43b7021f2/image.png)
+
 소실점의 y 좌표를 알면 카메라의 틸트(tilt)는 다음과 같이 간단하게 계산된다.
 vy는 소실점의 y좌표(픽셀좌표), 
 cy는 주점의 y좌표, 
@@ -94,10 +102,12 @@ fy는 y축 방향 카메라 초점거리.
 
 
 ![](https://velog.velcdn.com/images/ian-k-developer/post/cdd3a335-f0af-45d3-9eae-5dfac1c41514/image.png)
+
 roll 회전이 존재하는 경우에는 소실점만으로는 문제 해결이 안되며 소실선(vanishing line) 정보가 필요하다. 소실선이 주어질 경우, 카메라 주점과 소실선의 수직거리를 d(픽셀 단위), 초점거리를 f라 하면 틸트는 θtilt = atan2(d, f)로 계산
 
 소실선과 팬(pan)
 ![](https://velog.velcdn.com/images/ian-k-developer/post/fd26f19c-0678-458c-ba50-0a2b802aeda1/image.png)
+
 카메라의 원점을 C, 이미지의 주점을 P, 소실점을 V, 초점거리를 f, 주점에서 소실선에 내린 수선의 발을 H, 수직거리를 d
 ![](https://velog.velcdn.com/images/ian-k-developer/post/d245f7c0-dec6-47a7-96fe-34281c965271/image.png)
 
@@ -111,7 +121,6 @@ roll 회전이 존재하는 경우에는 소실점만으로는 문제 해결이 
 ![](https://velog.velcdn.com/images/ian-k-developer/post/8821cc0f-7e67-4836-bcaf-b8d6697204a5/image.png)
 
 ![](https://velog.velcdn.com/images/ian-k-developer/post/f3a18599-cc69-4165-9cda-99581688380e/image.png)
-
 
 ![](https://velog.velcdn.com/images/ian-k-developer/post/4408e602-bf6c-4ac2-afe3-ccc70b694fe0/image.png)
 
@@ -160,6 +169,7 @@ RGB와 Yellow 색의 4개의 기준점을 가진 평면
 ![](https://velog.velcdn.com/images/ian-k-developer/post/8a0cf046-ed78-4581-b765-b4f70366d23f/image.png)
 
 ![](https://velog.velcdn.com/images/ian-k-developer/post/b53255f8-0a7f-46fd-9284-01b01a1e5a89/image.png)
+
 ->호모그래피 행렬 계산을 통한 소실선벡터 도출
 
 4) 미리 실험을 통해 얻어놓은 `각도에 따른 픽셀좌표`와 `픽셀수 샘플`과 비교를 하여 두개의 소실선의 각도 차이를 얻어낸다.
