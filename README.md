@@ -73,6 +73,8 @@ x, y에 대한 식으로 표현하면,
 ![](https://velog.velcdn.com/images/ian-k-developer/post/7bd0664a-6b0c-4e76-a468-2b359c51931c/image.png)
 소실선의 위치를 알면 캘리브레이션을 하지 않고도 카메라의 팬(pan), 틸트(tilt), 롤(roll)을 알아낼 수 있다.
 
+
+
 ## Posture
 
 소실선과 롤(roll)
