@@ -223,8 +223,7 @@ RGB와 Yellow 색의 4개의 기준점을 가진 평면
 ```
 
 
-
-실험 1.
+실험 1. tilt
 
 - 평면을 5도 간격으로 측정하여 샘플을 얻는다.
 - 호모그래피 프로그램에 평면의 RGB ,Yellow 점의 좌표 삽입 
@@ -234,9 +233,7 @@ RGB와 Yellow 색의 4개의 기준점을 가진 평면
 
 
 
--------------------------------------------------
-
-실험 2.
+실험 2. pan
 
 - 평면의 회전을 10도마다 측정하여 샘플을 얻는다.
 - 호모그래피 프로그램에 평면의 RGB ,Yellow 점의 좌표 삽입 
@@ -246,16 +243,9 @@ RGB와 Yellow 색의 4개의 기준점을 가진 평면
 
 
 
--------------------------------------------------
-
-
-
-실험 3. 
-
+실험 3. 픽셀 수 알아내기
 각도에 따른 픽셀 샘플수를 얻기위해 사진을 찍어 픽셀을 계산한다.
 ![](https://velog.velcdn.com/images/ian-k-developer/post/2c19c628-1d95-4a1f-8766-bcc78c71586e/image.png)
-
-
 
 
 픽셀 값을 측정하기 위해 렌즈의 시야각에 맞게 선을 그은 후 10도 단위로 선을 그었다. 일자로 보이게 셋팅한 후 촬영하였다.
@@ -263,6 +253,17 @@ RGB와 Yellow 색의 4개의 기준점을 가진 평면
 
 ![](https://velog.velcdn.com/images/ian-k-developer/post/692cb298-24c1-4d86-a812-6268cec08af0/image.JPG)
 
+theta 실험
+<img width="955" alt="Screen Shot 2023-02-06 at 7 23 50 PM" src="https://user-images.githubusercontent.com/120093816/216947330-159ae8f0-6a7e-4ac6-80fb-c94653c0dd0e.png">
+
+roll 실험
+![Screen Shot 2023-02-06 at 7 24 18 PM](https://user-images.githubusercontent.com/120093816/216947429-c1de25dd-2200-44d7-b6b4-0810b67f09f4.png)
+
+phi 실험
+![Screen Shot 2023-02-06 at 7 24 47 PM](https://user-images.githubusercontent.com/120093816/216947540-8a4d62e2-52a3-4113-9b3f-943028cd002b.png)
+
+카메라 이동 시 실험
+![Screen Shot 2023-02-06 at 7 27 22 PM](https://user-images.githubusercontent.com/120093816/216948147-249c120d-e4f8-4ce1-b656-66524a0b1a26.png)
 
 ### 실험 데이터
 
